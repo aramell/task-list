@@ -11,4 +11,10 @@ class ListController < ApplicationController
         
         erb :'lists/new_list'
         end
+
+    get '/lists/:id' do
+        if logged_in?
+
+        end
+    end
 end
