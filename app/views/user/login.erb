@@ -1,12 +1,12 @@
 <h2>Please login below</h2>
 
-<form action="/users">
-    Username: <input type="text" name=user[username]>
+<form action="/login" method="post">
+    Username: <input type="text" name=user[username] id="username">
     <br/>
-    Password:  <input type="text" name=user[password]>
+    Password:  <input type="password" name=user[password] id="password">
     <br/>
     <br/>
-    <input type="submit" name="Login">
+    <input type="submit" value="Login">
     <br/>
     <a href="/">Back to Homepage</href></a>
 </form>

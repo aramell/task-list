@@ -2,8 +2,13 @@ class ListController < ApplicationController
 
 
     get '/lists' do
+        if logged_in?
         @lists = List.all
-    erb :'lists/index'
+            erb :'lists/index'
+
+        else
+            redirect to '/login'
+            end
     end
 
     get "/newlist" do
