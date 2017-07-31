@@ -1,4 +1,13 @@
+<h2>All the list for <%=current_user.username%></h2>
 <%@lists.each do |list| %>
-<li><%=list.name%></li>
+<a href="/lists/<%=list.id%>"</href><%=list.name%></a>
+
 
 <%end%>
+<br />
+<br />
+
+<br />
+<br />
+
+<a href="/newtask">Create new task</href></a>

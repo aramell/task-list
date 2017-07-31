@@ -10,6 +10,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+     @lists = List.all
+     @users = User.all
     
     erb :homepage
 
@@ -23,6 +25,9 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find_by(session[params])
     end
+    def find_task(id)
+      @task ||=Task.find_by_id(id)
+      end
     
   end
 

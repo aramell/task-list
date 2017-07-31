@@ -12,7 +12,7 @@
 <% List.all.each do |list|%>
 <br/>
 <%= list.name%>
-    <input type="checkbox" id="list_<%=list.id%>" name="user[list_ids]">
+    <input type="checkbox" id="<%=list.id%>" name="task[list_ids][]" value="<%=list.id%>">
 <%end%>
 
 </form>

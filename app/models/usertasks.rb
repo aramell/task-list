@@ -1,4 +1,4 @@
-class Usertasks < ActiveRecord::Base
+class Usertask < ActiveRecord::Base
 
         belongs_to :user
         belongs_to :task

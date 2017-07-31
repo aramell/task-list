@@ -1,0 +1,10 @@
+<h2>Here are you lists:</h2>
+<%=@list.name%>
+
+<form method="post" action="/lists/<%=@list.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete List">
+</form>
+    
+
+    <a href="/">Back to Homepage</href></a>

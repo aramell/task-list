@@ -2,7 +2,7 @@ class TaskController < ApplicationController
 
     get '/tasks' do
         @tasks = Task.all
-        erb :'/tasks'
+        erb :'/lists/index'
     end
 
         get '/newtask' do
@@ -13,13 +13,13 @@ class TaskController < ApplicationController
         end
 
         post '/task' do
-            if params[:task][:title] != ""
-                @task = Task.create(:title => params[:task][:title])
+            if logged_in? && params[:task][:title] != "" 
+                @task = current_user.tasks.create(:title => params[:task][:title])
                 else 
                 redirect to '/newtask'
              end
-                if params[:list][:name] != "" || 
-                @list = List.create(:name => params[:list][:name])
+                if params[:list][:name] != ""
+                @list = current_user.lists.create(:name => params[:list][:name])
                 else
                 redirect to '/newtask'
                 end
