@@ -12,10 +12,20 @@ class ListController < ApplicationController
     end
 
     get "/newlist" do
-        @list = List.create
         
-        erb :'lists/show'
+        
+        erb :'lists/new_list'
         end
+    post '/list' do
+        if params[:name] == ""
+            redirect to "/newlist"
+            else
+        @list = current_user.lists.create(:name => params[:name])
+            
+            redirect to '/lists'
+        end
+    end
+
 
     get '/lists/:id' do
         if logged_in?
@@ -29,7 +39,7 @@ class ListController < ApplicationController
     end
     post '/lists/:id/delete' do
             @list = List.find_by_id(params[:id])
-            @list.destroy
+            @list.delete
         redirect to '/'
         end
 end
