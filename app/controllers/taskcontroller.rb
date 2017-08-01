@@ -6,5 +6,17 @@ class TaskController < ApplicationController
     
     end
 
+    get '/newtask' do
+        if logged_in?
+        
+            erb :'/lists/new_list'
+        end
+    end
+    post '/tasks' do
+
+            @task = current_user.tasks.create(:name => params[:task])
+
+    end
+
 
 end

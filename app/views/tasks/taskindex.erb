@@ -1,4 +1,8 @@
+<h2><%=current_user.username%>'s Tasks</h2>
+
 <%@tasks.each do |task|%>
 
-<li><%=task.name%></li>
+<li><input type="checkbox"><%=task.name%></li>
 <%end%>
+<br/>
+<a href="/lists">View <%=current_user.username%>'s' Lists </a>

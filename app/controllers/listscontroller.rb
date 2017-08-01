@@ -3,7 +3,7 @@ class ListController < ApplicationController
 
     get '/lists' do
         if logged_in?
-        @lists = List.all
+        @lists = current_user.lists
             erb :'lists/index'
 
         else
