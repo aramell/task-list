@@ -25,9 +25,7 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find_by(session[params])
     end
-    def find_task(id)
-      @task ||=Task.find_by_id(id)
-      end
+    
     
   end
 

@@ -17,12 +17,17 @@ class ListController < ApplicationController
         erb :'lists/new_list'
         end
     post '/list' do
-        if params[:name] == ""
+        if params[:name] == "" 
             redirect to "/newlist"
             else
         @list = current_user.lists.create(:name => params[:name])
-            
-            redirect to '/lists'
+           if params[:task] != ""
+        @list.tasks.create(:name => params[:task])
+        @list.save
+        redirect to '/lists'
+        else
+             redirect to '/newlist'
+            end
         end
     end
 

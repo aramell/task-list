@@ -1,11 +1,17 @@
-<h2>Here are you lists:</h2>
-
+<h2>Here is your lists:</h2>
 <%=@list.name%>
+<br />
+<input type="checkbox"> <%=@list.tasks.name%>
 
+<br />
+
+<a href="/new_task"> Add Task
 <form method="post" action="/lists/<%=@list.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete List">
 </form>
+<a href="/delete_task"> Delete checked tasks
+<br />
     
 
     <a href="/">Back to Homepage</href></a>
