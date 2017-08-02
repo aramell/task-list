@@ -5,10 +5,11 @@
 
 <%else%>
 <%@tasks.each do |task|%>
-
 <li><input type="checkbox"><%=task.name%></li>
     <%end%>
 <%end%>
 <br/>
 
 <a href="/lists">View <%=current_user.username%>'s' Lists </a>
+<br />
+<a href="/">Back to Homepage</href></a>

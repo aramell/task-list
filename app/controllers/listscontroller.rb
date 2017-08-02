@@ -2,7 +2,7 @@ class ListController < ApplicationController
 
 
     get '/lists' do
-        if logged_in?
+        if logged_in?(session)
         @lists = current_user.lists
             erb :'lists/index'
 
@@ -30,7 +30,7 @@ class ListController < ApplicationController
 
 
     get '/lists/:id' do
-        if logged_in?
+        if logged_in?(session)
             @user_list = current_user.lists
             @list = @user_list.find_by(params)
         

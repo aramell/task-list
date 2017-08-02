@@ -7,19 +7,24 @@ class TaskController < ApplicationController
     end
 
     get '/newtask' do
-        if logged_in?
-        
-            erb :'/lists/new_list'
+        if logged_in?(session)
+            @list = current_user.lists
+            erb :'/tasks/newtask'
         else
 
             redirect to '/login'
-            end
+        end
     end
     post '/tasks' do
-        binding.pry
-            @task = current_user.tasks.create(:name => params[:task])
+        if logged_in?(session)
+            binding.pry
+           @task = current_user.tasks.create(:name => params[:task], :list_id => params[:list_id])
+                redirect to '/tasks'
 
-    end
+            else
+            redirect to '/login'
+            end
+        end
 
 
 end

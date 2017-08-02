@@ -1,18 +1,16 @@
-<h2>Create New List and Task</h2>
+<h2>Create New Task</h2>
 
-<form action="/list" method="post">
-    List Name: <input type="text" name="name">
+<form action="/tasks" method="post">
+    Task Name: <input type="text" name="name">
     <br />
     
-<h3><label>Existing Lists: </label> </h3>
+<h3><label>Add Task to Existing Lists: </label> </h3>
     <% current_user.lists.each do |list| %>
     <li><input id="<%= list.name %>" type="checkbox" name="list_ids[]" value="<%= list.id %>"> <a href="/lists/<%=list.id%>" > <%= list.name%> </li>
     <% end %>
 
     <input type="submit" name="submit">
-
 </form>
 
         <a href="/">Back to Homepage</href></a>
-
 
