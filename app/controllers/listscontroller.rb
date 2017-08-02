@@ -13,7 +13,6 @@ class ListController < ApplicationController
 
     get "/newlist" do
         
-        
         erb :'lists/new_list'
         end
     post '/list' do
@@ -21,20 +20,19 @@ class ListController < ApplicationController
             redirect to "/newlist"
             else
         @list = current_user.lists.create(:name => params[:name])
-           if params[:task] != ""
-        @list.tasks.create(:name => params[:task])
+        #    if params[:task] != ""
+        # @list.tasks.create(:name => params[:task])
+       end
         @list.save
         redirect to '/lists'
-        else
-             redirect to '/newlist'
-            end
-        end
+        
     end
 
 
     get '/lists/:id' do
         if logged_in?
-            @list = List.find_by_id(params[:id])
+            @user_list = current_user.lists
+            @list = @user_list.find_by(params)
         
         erb :'/lists/show'
         else

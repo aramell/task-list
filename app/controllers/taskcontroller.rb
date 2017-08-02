@@ -10,10 +10,13 @@ class TaskController < ApplicationController
         if logged_in?
         
             erb :'/lists/new_list'
-        end
+        else
+
+            redirect to '/login'
+            end
     end
     post '/tasks' do
-
+        binding.pry
             @task = current_user.tasks.create(:name => params[:task])
 
     end

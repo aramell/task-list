@@ -1,10 +1,14 @@
 <h2>Here is your list's tasks:</h2>
-<h3><%=@list.name%></h3>
+<h3>List Name: <%=@list.name%></h3>
 <br />
-<input type="checkbox"> <%=@list.tasks.name%>
+<%if%>
+<%@list.tasks.empty?%>
+<h3>No tasks created yet</h3>
+<%else%>
+<li><input type="checkbox"> <%=@list.tasks%></li>
 <br />
 <br />
-
+<%end%>
 <a href="/newtask"> Add Task
 <form method="post" action="/lists/<%=@list.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">

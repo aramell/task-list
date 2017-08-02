@@ -1,5 +1,9 @@
 <h2>Please login below</h2>
 
+<% if !!@user %>
+    <h3 style="color:red">Incorrect username or password.</h3>
+  <% end %>
+
 <form action="/login" method="post">
     Username: <input type="text" name=user[username] id="username">
     <br/>

@@ -3,15 +3,12 @@
 <form action="/list" method="post">
     List Name: <input type="text" name="name">
     <br />
-    Add Task: <input type="text" name="task">
-    <br />
     
 <h3><label>Existing Lists: </label> </h3>
     <% current_user.lists.each do |list| %>
-    <li><input id="<%= list.name %>" type="checkbox" name="list[]" value="<%= list.id %>"> <a href="/lists/<%=list.id%>" > <%= list.name%> </li>
+    <li><input id="<%= list.name %>" type="checkbox" name="list_ids[]" value="<%= list.id %>"> <a href="/lists/<%=list.id%>" > <%= list.name%> </li>
     <% end %>
 
-    <input type="submit" name="submit"
-
+    <input type="submit" name="submit">
 </form>
 

@@ -1,10 +1,14 @@
 <h2>All the list for <%=current_user.username%></h2>
+<% if @lists.empty? %>
+<h3>No Lists Created yet</h3>
+<%else%>
 <%@lists.each do |list| %>
 <li><input type="checkbox"><a href="/lists/<%=list.id%>"</href><%=list.name%></a> </li>
 <%end%>
-<br />
-<br />
+<%end%>
 
+<br />
+<br />
 <br />
 <br />
 

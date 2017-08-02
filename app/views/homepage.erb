@@ -1,13 +1,20 @@
 <h1>Welcome to Task Lists</h1>
 <br/>
+
 <%if%>
 <%logged_in?%>
+<%=current_user.username%>
+<br/>
+<a href="/newlist">Create New List</a>
+<a href="/lists">View all Lists</a>
+<a href="/tasks">View all Tasks</a>
 
 <br/>
 <a href="/logout">Log out </a>
 
 
 <%else%>
+
 
 <a href="/signup">New User? Sign Up Here!</a>
 <br/>
