@@ -6,7 +6,7 @@
     
 <h3><label>Add Task to Existing Lists: </label> </h3>
     <% current_user.lists.each do |list| %>
-    <li><input id="<%= list.name %>" type="checkbox" name="list_ids[]" value="<%= list.id %>"> <a href="/lists/<%=list.id%>" > <%= list.name%> </li>
+    <li><input id="<%= list.name %>" type="checkbox" name="list_id[]" value="<%= list.id %>"> <a href="/lists/<%=list.id%>" > <%= list.name%> </input> </li>
     <% end %>
 
     <input type="submit" name="submit">

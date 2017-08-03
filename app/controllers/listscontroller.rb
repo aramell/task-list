@@ -12,9 +12,13 @@ class ListController < ApplicationController
     end
 
     get "/newlist" do
+        if logged_in?(session)
         
         erb :'lists/new_list'
+        else
+        redirect to '/login'
         end
+     end
     post '/list' do
         if params[:name] == "" 
             redirect to "/newlist"
@@ -40,9 +44,27 @@ class ListController < ApplicationController
 
         end
     end
+
+    get '/lists/:id/edit' do
+        if logged_in?(session)
+            @user_list = current_user.lists
+            @list = @user_list.find_by(params)
+        
+        erb :'/lists/edit'
+        else
+        redirec to '/login'
+        end
+    end
+
+    patch '/lists/:id' do
+        @list = current_user.lists.find_by(params[:id])
+        @list.update(name: params[:name])
+        redirect to "/lists/#{@list.id}"
+    end
+
     post '/lists/:id/delete' do
             @list = List.find_by_id(params[:id])
             @list.delete
         redirect to '/'
-        end
+    end
 end

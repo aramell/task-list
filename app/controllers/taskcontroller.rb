@@ -18,13 +18,14 @@ class TaskController < ApplicationController
     post '/tasks' do
         if logged_in?(session)
             binding.pry
-           @task = current_user.tasks.create(:name => params[:task], :list_id => params[:list_id])
+           @task = current_user.tasks.create(:name => params[:name], :list_id => params[:list_id])
                 redirect to '/tasks'
 
             else
             redirect to '/login'
             end
         end
+    
 
 
 end
