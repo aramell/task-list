@@ -7,7 +7,7 @@
 <h3>No tasks created yet</h3>
 <%else%>
 <%@list.tasks.each do |task|%>
-<li><input type="checkbox"> <%=task.name%></li>
+<li><input type="checkbox"> <a href="/tasks/<%=task.id%>"</href> <%=task.name%></li>
 <%end%>
 <br />
 <br />
@@ -17,8 +17,8 @@
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete List">
 </form>
-<a href="/delete_task"> Delete checked tasks
-<br />
+<a href="/lists/<%=@list.id%>/edit">Edit list</href></a>
+<br/>
     
   <a href="/lists"> Back to Lists <br/>
     <a href="/">Back to Homepage</href></a>
