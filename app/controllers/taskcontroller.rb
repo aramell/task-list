@@ -29,6 +29,19 @@ class TaskController < ApplicationController
 
             erb :'/tasks/show'
         end 
+         get '/tasks/:id/edit' do
+            @task = current_user.tasks.find_by_id(params[:id])
+
+            erb :'/tasks/edit'
+        end 
+        
+        patch '/tasks/:id' do
+        @task = current_user.tasks.find_by(params[:id])
+        @task.update(name: params[:name])
+        redirect to "/tasks/#{@task.id}"
+    end
+
+
         delete '/tasks/:id/delete' do
             @task = current_user.tasks.find_by_id(params[:id])
             @task.delete

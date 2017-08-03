@@ -1,18 +1,18 @@
 <h2>Task</h2>
+
 <h3>Task Name: <%=@task.name%></h3>
 <br />
 
-<%binding.pry%>
 
 
 <form method="post" action="/tasks/<%=@task.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete Task">
 </form>
-<a href="/delete_task"> Delete checked tasks
 <br />
-    
-  <a href="/tasks"> Back to Task <br/>
-    <a href="/">Back to Homepage</href></a>
+<a href="/tasks/<%=@task.id%>/edit">Edit Task</href></a>
+<br/>
+<a href="/tasks"> Back to Task <br/>
+<a href="/">Back to Homepage</href></a>
 <br />
 <a href="/logout">Log out </a>
