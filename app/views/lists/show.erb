@@ -1,11 +1,14 @@
 <h2>Here is your list's tasks:</h2>
 <h3>List Name: <%=@list.name%></h3>
 <br />
+
 <%if%>
 <%@list.tasks.empty?%>
 <h3>No tasks created yet</h3>
 <%else%>
-<li><input type="checkbox"> <%=@list.tasks%></li>
+<%@list.tasks.each do |task|%>
+<li><input type="checkbox"> <%=task.name%></li>
+<%end%>
 <br />
 <br />
 <%end%>

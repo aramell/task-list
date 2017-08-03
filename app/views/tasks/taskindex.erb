@@ -1,11 +1,11 @@
 <h2><%=current_user.username%>'s Tasks</h2>
 <% if @tasks.empty?%>
-
 <h3>No Tasks Created yet </h3>
 
 <%else%>
 <%@tasks.each do |task|%>
-<li><input type="checkbox"><%=task.name%></li>
+<li><input type="checkbox"><a href="/tasks/<%=task.id%>"</href><%=task.name%></li>
+
     <%end%>
 <%end%>
 <br/>
@@ -13,3 +13,5 @@
 <a href="/lists">View <%=current_user.username%>'s' Lists </a>
 <br />
 <a href="/">Back to Homepage</href></a>
+
+<form action="DELETE"></form>

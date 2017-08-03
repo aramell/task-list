@@ -16,8 +16,7 @@ class TaskController < ApplicationController
         end
     end
     post '/tasks' do
-        if logged_in?(session)
-            binding.pry
+        if logged_in?(session) && params[:name] != ""
            @task = current_user.tasks.create(:name => params[:name], :list_id => params[:list_id])
                 redirect to '/tasks'
 
@@ -25,7 +24,16 @@ class TaskController < ApplicationController
             redirect to '/login'
             end
         end
-    
+        get '/tasks/:id' do
+            @task = current_user.tasks.find_by_id(params[:id])
+
+            erb :'/tasks/show'
+        end 
+        delete '/tasks/:id/delete' do
+            @task = current_user.tasks.find_by_id(params[:id])
+            @task.delete
+        redirect to '/tasks'
+    end
 
 
 end

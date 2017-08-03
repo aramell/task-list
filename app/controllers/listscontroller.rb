@@ -62,8 +62,9 @@ class ListController < ApplicationController
         redirect to "/lists/#{@list.id}"
     end
 
-    post '/lists/:id/delete' do
-            @list = List.find_by_id(params[:id])
+    delete '/lists/:id/delete' do
+            @list = current_user.lists.find_by_id(params[:id])
+            
             @list.delete
         redirect to '/'
     end
