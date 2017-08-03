@@ -12,7 +12,8 @@ class UserController < ApplicationController
   
     post '/signup' do
 
-        @user = User.create(username: params[:user][:username], password: params[:user][:password])
+        @user = User.new(username: params[:user][:username], password: params[:user][:password])
+            @user.save
             session[:id] = @user.id
      redirect to '/lists'
     end
@@ -36,8 +37,7 @@ class UserController < ApplicationController
     end
 
     get '/logout' do
-        session.destroy
-
+        session.clear
         erb :'/homepage'
         end
  end
