@@ -31,7 +31,7 @@ class UserController < ApplicationController
         if user && user.authenticate(params[:user][:password])
             session[:user_id] = user.id
              redirect to "/lists"
-             else
+        else
             redirect to '/login'
         end
     end
