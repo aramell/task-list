@@ -8,12 +8,8 @@
     <% current_user.lists.each do |list| %>
     <li><input id="<%= list.name %>" type="checkbox" name="list_ids[]" value="<%= list.id %>"> <a href="/lists/<%=list.id%>" > <%= list.name%> </li>
     <% end %>
-
     <input type="submit" name="submit">
-
 </form>
 <div class="wrapper">
-
         <a href="/">Back to Homepage</href></a>
-
 </div>

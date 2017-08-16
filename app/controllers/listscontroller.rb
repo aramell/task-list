@@ -3,35 +3,33 @@ class ListController < ApplicationController
 
     get '/lists' do
         if logged_in?(session)
-        @lists = current_user.lists
+            @lists = current_user.lists
             erb :'lists/index'
-
         else
             redirect to '/login'
-            end
+        end
     end
 
     get "/newlist" do
-        if logged_in?(session)
+        if logged_in?
         
-        erb :'lists/new_list'
+            erb :'lists/new_list'
         else
-        redirect to '/login'
+            redirect to '/login'
         end
-     end
+    end
+
     post '/list' do
         if params[:name] == "" 
             redirect to "/newlist"
-            else
-        @list = current_user.lists.create(:name => params[:name])
+        else
+            @list = current_user.lists.create(:name => params[:name])
         #    if params[:task] != ""
         # @list.tasks.create(:name => params[:task])
-       end
-        @list.save
-        redirect to '/lists'
-        
+        end
+            @list.save
+            redirect to '/lists' 
     end
-
 
     get '/lists/:id' do
         if logged_in?(session)
@@ -41,7 +39,6 @@ class ListController < ApplicationController
         erb :'/lists/show'
         else
             redirect to '/login'
-
         end
     end
 
@@ -52,7 +49,7 @@ class ListController < ApplicationController
         
         erb :'/lists/edit'
         else
-        redirec to '/login'
+        redirect to '/login'
         end
     end
 
@@ -64,7 +61,6 @@ class ListController < ApplicationController
 
     delete '/lists/:id/delete' do
             @list = current_user.lists.find_by_id(params[:id])
-            
             @list.delete
         redirect to '/'
     end

@@ -1,11 +1,13 @@
 <h2>All the list for <%=current_user.username%></h2>
 <% if @lists.empty? %>
-<h3>No Lists Created yet</h3>
-<%else%>
-<%@lists.each do |list| %>
-<li><a href="/lists/<%=list.id%>"</href><%=list.name%></a> </li>
-<%end%>
-<%end%>
+  <h3>No Lists Created yet</h3>
+<% else %>
+  <% @lists.each do |list| %>
+    <li>
+      <a href="/lists/<%=list.id%>"><%=list.name%></a>
+    </li>
+  <% end %>
+<% end %>
 
 <br />
 <br />
@@ -13,11 +15,9 @@
 <br />
 <div class="wrapper">
 
-<a href="/newlist">Create New List</href></a>
-<br />
-<a href="/tasks">View all Tasks</href></a>
-
-<br />
-
-<a href="/logout">Log out </a>
+  <a href="/newlist">Create New Lis"</a>
+  <br />
+  <a href="/tasks">View all Task"</a>
+  <br />
+  <a href="/logout">Log out</a>
 </div>
