@@ -3,7 +3,7 @@
 <h3>No Lists Created yet</h3>
 <%else%>
 <%@lists.each do |list| %>
-<li><input type="checkbox"><a href="/lists/<%=list.id%>"</href><%=list.name%></a> </li>
+<li><a href="/lists/<%=list.id%>"</href><%=list.name%></a> </li>
 <%end%>
 <%end%>
 
@@ -11,6 +11,7 @@
 <br />
 <br />
 <br />
+<div class="wrapper">
 
 <a href="/newlist">Create New List</href></a>
 <br />
@@ -19,4 +20,4 @@
 <br />
 
 <a href="/logout">Log out </a>
-
+</div>

@@ -7,11 +7,12 @@
 <h3>No tasks created yet</h3>
 <%else%>
 <%@list.tasks.each do |task|%>
-<li><input type="checkbox"> <a href="/tasks/<%=task.id%>"</href> <%=task.name%></li>
+<li><input type="text"> <a href="/tasks/<%=task.id%>"</href> <%=task.name%></li>
 <%end%>
 <br />
 <br />
 <%end%>
+<div class="wrapper">
 <a href="/newtask"> Add Task
 <form method="post" action="/lists/<%=@list.id%>/delete">
   <input id="hidden" type="hidden" name="_method" value="DELETE">
@@ -24,3 +25,4 @@
     <a href="/">Back to Homepage</href></a>
 <br />
 <a href="/logout">Log out </a>
+</div>
